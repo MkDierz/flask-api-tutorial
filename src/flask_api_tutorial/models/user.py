@@ -6,15 +6,15 @@ import jwt
 from flask import current_app
 from sqlalchemy.ext.hybrid import hybrid_property
 
-from flask_api_tutorial import db, bcrypt
-from flask_api_tutorial.models.token_blacklist import BlacklistedToken
-from flask_api_tutorial.util.datetime_util import (
+from src.flask_api_tutorial import db, bcrypt
+from src.flask_api_tutorial.models.token_blacklist import BlacklistedToken
+from src.flask_api_tutorial.util.datetime_util import (
     utc_now,
     get_local_utcoffset,
     make_tzaware,
     localized_dt_string,
 )
-from flask_api_tutorial.util.result import Result
+from src.flask_api_tutorial.util.result import Result
 
 
 class User(db.Model):
@@ -68,7 +68,7 @@ class User(db.Model):
     @staticmethod
     def decode_access_token(access_token):
         if isinstance(access_token, bytes):
-            access_token = access_token.decode("ascii")
+            access_token = access_token
         if access_token.startswith("Bearer "):
             split = access_token.split("Bearer")
             access_token = split[1].strip()

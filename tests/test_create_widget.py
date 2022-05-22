@@ -25,7 +25,7 @@ def test_create_widget_valid_name(client, db, admin, widget_name):
     assert "status" in response.json and response.json["status"] == "success"
     success = f"New widget added: {widget_name}."
     assert "message" in response.json and response.json["message"] == success
-    location = f"http://localhost/api/v1/widgets/{widget_name}"
+    location = f"/api/v1/widgets/{widget_name}"
     assert "Location" in response.headers and response.headers["Location"] == location
 
 
@@ -46,7 +46,7 @@ def test_create_widget_valid_deadline(client, db, admin, deadline_str):
     assert "status" in response.json and response.json["status"] == "success"
     success = f"New widget added: {DEFAULT_NAME}."
     assert "message" in response.json and response.json["message"] == success
-    location = f"http://localhost/api/v1/widgets/{DEFAULT_NAME}"
+    location = f"/api/v1/widgets/{DEFAULT_NAME}"
     assert "Location" in response.headers and response.headers["Location"] == location
 
 

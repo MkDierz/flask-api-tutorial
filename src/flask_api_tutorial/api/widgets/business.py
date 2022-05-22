@@ -4,11 +4,14 @@ from http import HTTPStatus
 from flask import jsonify, url_for
 from flask_restx import abort, marshal
 
-from flask_api_tutorial import db
-from flask_api_tutorial.api.auth.decorators import token_required, admin_token_required
-from flask_api_tutorial.api.widgets.dto import pagination_model, widget_name
-from flask_api_tutorial.models.user import User
-from flask_api_tutorial.models.widget import Widget
+from src.flask_api_tutorial import db
+from src.flask_api_tutorial.api.auth.decorators import (
+    token_required,
+    admin_token_required,
+)
+from src.flask_api_tutorial.api.widgets.dto import pagination_model, widget_name
+from src.flask_api_tutorial.models.user import User
+from src.flask_api_tutorial.models.widget import Widget
 
 
 @admin_token_required

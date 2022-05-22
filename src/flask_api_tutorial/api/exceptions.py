@@ -19,11 +19,9 @@ class ApiUnauthorized(Unauthorized):
         self.www_auth_value = self.__get_www_auth_value(
             admin_only, error, error_description
         )
-        Unauthorized.__init__(
-            self, description=description, response=None, www_authenticate=None
-        )
+        Unauthorized.__init__(self, description=description, www_authenticate=None)
 
-    def get_headers(self, environ):
+    def get_headers(self, args, environ):
         return [("Content-Type", "text/html"), ("WWW-Authenticate", self.www_auth_value)]
 
     def __get_www_auth_value(self, admin_only, error, error_description):
@@ -41,7 +39,7 @@ class ApiForbidden(Forbidden):
 
     description = "You are not an administrator"
 
-    def get_headers(self, environ):
+    def get_headers(self, args, environ):
         return [
             ("Content-Type", "text/html"),
             (

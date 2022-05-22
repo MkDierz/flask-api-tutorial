@@ -11,9 +11,9 @@ README = (APP_ROOT / "README.md").read_text()
 AUTHOR = "Aaron Luna"
 AUTHOR_EMAIL = "contact@aaronluna.dev"
 PROJECT_URLS = {
-    "Documentation": "https://aaronluna.dev/series/flask-api-tutorial/",
-    "Bug Tracker": "https://github.com/a-luna/flask-api-tutorial/issues",
-    "Source Code": "https://github.com/a-luna/flask-api-tutorial",
+    # "Documentation": "https://aaronluna.dev/series/flask-api-tutorial/",
+    # "Bug Tracker": "https://github.com/a-luna/flask-api-tutorial/issues",
+    # "Source Code": "https://github.com/a-luna/flask-api-tutorial",
 }
 INSTALL_REQUIRES = [
     "Flask",
@@ -27,7 +27,7 @@ INSTALL_REQUIRES = [
     "python-dotenv",
     "requests",
     "urllib3",
-    "werkzeug==0.16.1",
+    "werkzeug",
 ]
 EXTRAS_REQUIRE = {
     "dev": [
@@ -56,11 +56,11 @@ setup(
     maintainer=AUTHOR,
     maintainer_email=AUTHOR_EMAIL,
     license="MIT",
-    url="https://github.com/a-luna/flask-api-tutorial",
+    # url="https://github.com/a-luna/flask-api-tutorial",
     project_urls=PROJECT_URLS,
     packages=find_packages(where="src"),
     package_dir={"": "src"},
-    python_requires=">=3.6",
+    python_requires=">=3.10",
     install_requires=INSTALL_REQUIRES,
     extras_require=EXTRAS_REQUIRE,
 )

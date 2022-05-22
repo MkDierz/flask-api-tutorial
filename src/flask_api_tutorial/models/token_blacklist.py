@@ -1,8 +1,8 @@
 """Class definition for BlacklistedToken."""
 from datetime import timezone
 
-from flask_api_tutorial import db
-from flask_api_tutorial.util.datetime_util import utc_now, dtaware_fromtimestamp
+from src.flask_api_tutorial import db
+from src.flask_api_tutorial.util.datetime_util import utc_now, dtaware_fromtimestamp
 
 
 class BlacklistedToken(db.Model):

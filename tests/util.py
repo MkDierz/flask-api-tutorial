@@ -62,6 +62,7 @@ def create_widget(
 def retrieve_widget_list(test_client, access_token, page=None, per_page=None):
     return test_client.get(
         url_for("api.widget_list", page=page, per_page=per_page),
+        data="",
         headers={"Authorization": f"Bearer {access_token}"},
     )
 

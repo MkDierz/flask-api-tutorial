@@ -3,8 +3,8 @@ from datetime import datetime, timezone, timedelta
 
 from sqlalchemy.ext.hybrid import hybrid_property
 
-from flask_api_tutorial import db
-from flask_api_tutorial.util.datetime_util import (
+from src.flask_api_tutorial import db
+from src.flask_api_tutorial.util.datetime_util import (
     utc_now,
     format_timedelta_str,
     get_local_utcoffset,

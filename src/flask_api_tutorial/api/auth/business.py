@@ -4,11 +4,11 @@ from http import HTTPStatus
 from flask import current_app, jsonify
 from flask_restx import abort
 
-from flask_api_tutorial import db
-from flask_api_tutorial.api.auth.decorators import token_required
-from flask_api_tutorial.models.token_blacklist import BlacklistedToken
-from flask_api_tutorial.models.user import User
-from flask_api_tutorial.util.datetime_util import (
+from src.flask_api_tutorial import db
+from src.flask_api_tutorial.api.auth.decorators import token_required
+from src.flask_api_tutorial.models.token_blacklist import BlacklistedToken
+from src.flask_api_tutorial.models.user import User
+from src.flask_api_tutorial.util.datetime_util import (
     remaining_fromtimestamp,
     format_timespan_digits,
 )
@@ -22,7 +22,7 @@ def process_registration_request(email, password):
     db.session.commit()
     access_token = new_user.encode_access_token()
     return _create_auth_successful_response(
-        token=access_token.decode(),
+        token=access_token,
         status_code=HTTPStatus.CREATED,
         message="successfully registered",
     )
@@ -34,7 +34,7 @@ def process_login_request(email, password):
         abort(HTTPStatus.UNAUTHORIZED, "email or password does not match", status="fail")
     access_token = user.encode_access_token()
     return _create_auth_successful_response(
-        token=access_token.decode(),
+        token=access_token,
         status_code=HTTPStatus.OK,
         message="successfully logged in",
     )

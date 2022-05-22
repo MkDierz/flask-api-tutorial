@@ -3,7 +3,7 @@ from http import HTTPStatus
 
 from flask_restx import Namespace, Resource
 
-from flask_api_tutorial.api.widgets.dto import (
+from src.flask_api_tutorial.api.widgets.dto import (
     create_widget_reqparser,
     update_widget_reqparser,
     pagination_reqparser,
@@ -12,7 +12,7 @@ from flask_api_tutorial.api.widgets.dto import (
     pagination_links_model,
     pagination_model,
 )
-from flask_api_tutorial.api.widgets.business import (
+from src.flask_api_tutorial.api.widgets.business import (
     create_widget,
     retrieve_widget_list,
     retrieve_widget,
@@ -35,7 +35,7 @@ class WidgetList(Resource):
     """Handles HTTP requests to URL: /widgets."""
 
     @widget_ns.doc(security="Bearer")
-    @widget_ns.response(HTTPStatus.OK, "Retrieved widget list.", pagination_model)
+    @widget_ns.response(int(HTTPStatus.OK), "Retrieved widget list.", pagination_model)
     @widget_ns.expect(pagination_reqparser)
     def get(self):
         """Retrieve a list of widgets."""

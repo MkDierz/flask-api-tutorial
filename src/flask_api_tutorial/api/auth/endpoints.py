@@ -3,8 +3,8 @@ from http import HTTPStatus
 
 from flask_restx import Namespace, Resource
 
-from flask_api_tutorial.api.auth.dto import auth_reqparser, user_model
-from flask_api_tutorial.api.auth.business import (
+from src.flask_api_tutorial.api.auth.dto import auth_reqparser, user_model
+from src.flask_api_tutorial.api.auth.business import (
     process_registration_request,
     process_login_request,
     get_logged_in_user,

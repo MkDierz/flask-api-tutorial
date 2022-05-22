@@ -8,7 +8,7 @@ from flask_restx.fields import Boolean, DateTime, Integer, List, Nested, String,
 from flask_restx.inputs import positive, URL
 from flask_restx.reqparse import RequestParser
 
-from flask_api_tutorial.util.datetime_util import make_tzaware, DATE_MONTH_NAME
+from src.flask_api_tutorial.util.datetime_util import make_tzaware, DATE_MONTH_NAME
 
 
 def widget_name(name):
@@ -73,9 +73,16 @@ update_widget_reqparser = create_widget_reqparser.copy()
 update_widget_reqparser.remove_argument("name")
 
 pagination_reqparser = RequestParser(bundle_errors=True)
-pagination_reqparser.add_argument("page", type=positive, required=False, default=1)
 pagination_reqparser.add_argument(
-    "per_page", type=positive, required=False, choices=[5, 10, 25, 50, 100], default=10
+    "page", type=positive, required=False, default=1, location="args"
+)
+pagination_reqparser.add_argument(
+    "per_page",
+    type=positive,
+    required=False,
+    choices=[5, 10, 25, 50, 100],
+    default=10,
+    location="args",
 )
 
 widget_owner_model = Model("Widget Owner", {"email": String, "public_id": String})

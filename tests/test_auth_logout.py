@@ -1,7 +1,7 @@
 """Unit tests for api.auth_logout API endpoint."""
 from http import HTTPStatus
 
-from flask_api_tutorial.models.token_blacklist import BlacklistedToken
+from src.flask_api_tutorial.models.token_blacklist import BlacklistedToken
 from tests.util import WWW_AUTH_NO_TOKEN, register_user, login_user, logout_user
 
 SUCCESS = "successfully logged out"

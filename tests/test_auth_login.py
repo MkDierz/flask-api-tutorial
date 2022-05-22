@@ -1,7 +1,7 @@
 """Unit tests for api.auth_login API endpoint."""
 from http import HTTPStatus
 
-from flask_api_tutorial.models.user import User
+from src.flask_api_tutorial.models.user import User
 from tests.util import EMAIL, register_user, login_user
 
 SUCCESS = "successfully logged in"
